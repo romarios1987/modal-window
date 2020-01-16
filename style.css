@@ -1,0 +1,100 @@
+body {
+  font-family: monospace;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:host > .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #282c34;
+  opacity: 0.8;
+  z-index: 2;
+  display: none;
+}
+
+:host([opened]) > .overlay {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-weight: normal;
+  font-size: 1.2em;
+  padding-bottom: 10px;
+}
+:host .escape {
+  transform: rotate(45deg);
+  position: absolute;
+  font-size: 1.4em;
+  cursor: pointer;
+  top: 5px;
+  right: 10px;
+}
+
+:host .accept,
+:host .cancel {
+  width: 40%;
+  text-align: center;
+  display: block;
+  background-color: #4fc08d;
+  font-size: 1.4em;
+  cursor: pointer;
+  float: left;
+  padding: 3px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.12);
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+  color: rgba(256, 256, 256, 0.8);
+}
+:host .cancel {
+  float: right;
+  background-color: #b94a48;
+}
+
+:host > .menu {
+  display: none;
+  background-color: white;
+  padding: 0px 30px 20px;
+  position: absolute;
+  top: 20vh;
+  z-index: 3;
+  border-radius: 10px;
+}
+:host([opened]) > .menu {
+  display: block;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+@media screen and (min-width: 801px) {
+  .menu {
+    width: 350px;
+    left: calc(50% - 175px);
+  }
+}
+@media screen and (max-width: 800px) {
+  .menu {
+    width: 80%;
+    left: 5%;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Modal Window</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <modal-window
+      id="modal1"
+      header="Modal Window"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, repudiandae!"
+      esc
+      accept="Hi"
+      dismiss="close"
+      overlay
+      cross
+    >
+    </modal-window>
+
+    <button id="button1">Open Modal Window</button>
+
+    <script>
+      window.onload = function() {
+        const window1 = document.querySelector('#modal1');
+
+        document
+          .querySelector('#button1')
+          .addEventListener('click', function() {
+            window1.show();
+          });
+        window1.addAcceptEventListener('click', () => {
+          alert('Hello World!');
+        });
+
+        window1.addDismissEventListener('click', () => {
+          window1.close();
+        });
+      };
+    </script>
+    <script src="modal.js"></script>
+  </body>
+</html>
